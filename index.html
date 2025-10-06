@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="uz" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <!-- Dark mode -->
+    <script>
+        if (localStorage.theme === 'dark') {
+            document.documentElement.classList.add('dark')
+        }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 transition-colors duration-500">
+
+    <div
+        class="lg:hidden fixed inset-0 flex items-center justify-center text-2xl font-semibold ml-2 mr-2 text-center text-black dark:text-white">
+        This website is only for desktop devices.
+    </div>
+
+    <!-- Main container -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow p-8 main-content hidden lg:block">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100">
+                📝 Todo App
+            </h1>
+
+            <!-- Dark/light toggle -->
+            <button id="themeToggle"
+                class="bg-gray-200 dark:bg-gray-700 p-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+                🌙
+            </button>
+        </div>
+
+        <!-- Input area -->
+        <div class="flex gap-2 mb-6">
+            <input id="todoInput" type="text" placeholder="Yangi ish kiriting..."
+                class="flex-grow border border-gray-300 dark:border-gray-600 rounded-lg px-5 py-3 text-gray-800 dark:text-gray-100 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:border-primary transition-none" />
+
+            <button id="addBtn"
+                class="shrink-0 bg-primary hover:bg-yellow-500 text-white font-semibold px-4 py-3 rounded-lg transition">
+                Qo‘shish
+            </button>
+        </div>
+
+        <!-- Filter buttons -->
+        <div id="filterWrapper" class="flex justify-between mb-6">
+            <button class="filter-btn text-sm font-medium text-yellow-500" data-filter="all">
+                Hammasi
+            </button>
+            <button class="filter-btn text-sm font-medium text-green-500" data-filter="active">
+                Faol holatda
+            </button>
+            <button class="filter-btn text-sm font-medium text-red-500" data-filter="completed">
+                Tugallanganlar
+            </button>
+        </div>
+
+        <!-- TODO LIST -->
+        <ul id="todoList" class="space-y-3 max-h-[400px] overflow-y-auto">
+        </ul>
+
+        <!-- Footer -->
+        <div id="todoFooter" class="text-sm text-gray-600 dark:text-gray-400 mt-6 text-center">
+            0 ta ish
+        </div>
+    </div>
+
+    <!-- Loader -->
+    <div class="loader-wrapper">
+        <span class="loader"></span>
+    </div>
+
+    <!-- JS links -->
+    <script src="./app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import 'tailwindcss';
+
+body {
+	font-family: 'Rubik', sans-serif;
+	font-size: 18px;
+}
+
+.main-content {
+	margin-top: 50px;
+	width: 65%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.loader-wrapper {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	inset: 0;
+	background-color: #f9fafb;
+	z-index: 9999;
+}
+
+.dark .loader-wrapper {
+	background-color: #111827;
+}
+
+.loader-wrapper.hidden {
+	display: none;
+}
+
+.loader {
+	width: 48px;
+	height: 48px;
+	border-width: 3px;
+	border-style: dashed solid solid dotted;
+	border-color: #ff3d00 #ff3d00 transparent #ff3d00;
+	border-radius: 50%;
+	display: inline-block;
+	position: relative;
+	box-sizing: border-box;
+	animation: rotation 1s linear infinite;
+}
+
+.loader::after {
+	content: '';
+	box-sizing: border-box;
+	position: absolute;
+	left: 20px;
+	top: 31px;
+	border: 10px solid transparent;
+	border-right-color: #ff3d00;
+	transform: rotate(-40deg);
+}
+
+@keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.filter-btn {
+	border-bottom: 2px solid transparent;
+}
+
+.filter-btn-active {
+	border-bottom: 2px solid;
+}
